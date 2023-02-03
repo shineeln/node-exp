@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = 5000;
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const { auth } = require("./middleware/auth");
@@ -21,6 +21,10 @@ async function main() {
 }
 
 app.get("/", (req, res) => res.send("Hello world!"));
+
+app.get("/api/hello", (req, res) => {
+  res.send("Hello");
+});
 
 app.post("/api/users/register", (req, res) => {
   const user = new User(req.body);
